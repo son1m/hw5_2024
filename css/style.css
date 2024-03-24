@@ -1,0 +1,269 @@
+/* Step 1
+Animate the logo with keyframes.  (Here is a keyframes reference.) It should start at a width of 25px and grow to 475px.  It should also start with an opacity of 0 and end with an opacity of 1. The animation should take 5 seconds and only happen when the page is loaded. **You can complete this step later in the process - it won’t affect the larger views.  */
+
+/* @keyframes mymove {
+  from {width: 25px;}
+  to {width: 475px;}
+} */
+
+/* HELP */
+@keyframes growAndFadeIn {
+  from {
+    width: 25px;
+    opacity: 0;
+  }
+  to {
+    width: 475px;
+    opacity: 1;
+  }
+}
+
+header #logo {
+  animation: growAndFadeIn 5s ease forwards;
+}
+
+
+/* 
+step 2
+Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1.
+ */
+
+
+ body{
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+ }
+
+
+ /* 
+ step 3
+ Edit the css for the header tag (all instances) to use flex to match our example. difference between align content and align items?use inspect 
+  */
+
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 
+step 4
+Edit the css for the nav_links class to use flex to match our example. Do not modify the list items or the links - modify the nav_links class to use flex. The nav bar got messed up so we played with 
+ */
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* 
+Step 5
+Style the links so that they have the same color even after they have been visited. This is a “challenge” problem. You should not give or receive help when completing it. COME BACK TO 
+ */
+
+ /* .card header{ 
+
+} */
+
+.nav_item a:visited, .nav_item a:link{
+    color: blue;
+}
+  
+
+ /* 
+ step 6
+ Identify the proper selector to style ONLY those header elements that are direct children of a card class.  The required styling is the following: 
+background: #288088,
+solid 2px border using #45ADAD,
+20px of padding on the top and the bottom, 
+50px border-radius on the top left and right corners. 
+
+  */
+
+  .card > header{ 
+    background-color: #288088;
+    border: solid 2px #45adad;
+    padding: 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    }
+
+    /* how to make the white corner go away */
+    .card {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+
+  /* 
+  steps 7 and 8 
+You won’t have the right “look” until you finish both.
+
+Edit the css for the card class to match our example. Achieve this by using a flex-property to specify an initial “size” of 450px.  You need to think about this from a “flex” perspective and realize that flex-direction will affect the size of the elements.  You can see that in the mobile view they all have the same width. 
+
+
+Edit the css for the pricing class to match our example. You should use flex and the cards should be centered both horizontally and vertically.
+ */
+
+ .card{
+     display: flex;
+        flex-direction: column;
+        flex-basis: 450px;
+ }
+
+ /* something I tried that did not work */
+/* .card > li{
+     background-color: white;
+     border-bottom: #50c7c7;
+ } */
+
+ .pricing{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+
+ /* Step 9 
+ Style the images in the gallery class. These elements will have a solid 10px border with a color of #50C7C7, 10px margin on all four sides and a width of 300px.  
+  */
+
+  .gallery img {
+    border: solid 10px #50c7c7;
+    margin: 10px;
+    width: 300px;
+  }
+
+  /* step 10 
+  Edit the css for the gallery class to use flex to match our example. (You may want to look at the screen shots from 1200px and 1500px as well -  the changes are not from media queries, but from the use of flex.)hw4_1500px.png */
+
+  .gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+
+
+
+
+
+  /* Over 900 px  */
+
+@media (min-width: 900px) {
+
+  /* step 11
+  Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible. Use flex properties, NOT position properties.
+*/
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .nav_links{
+            flex-direction: row;
+        }
+
+
+
+    /* step 12
+    Edit the css for the pricing and card classes to match our example. Part of achieving this is by using a flex-property to specify a “size” of 275px. Notice that the elements do not have the same height, but do have the same width. 
+    */
+
+    .pricing .card{
+        flex-basis: 275px;
+    }
+
+
+    /* step 13
+    Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. Make sure that it is always visible. You can see an example of this in the video and in the screenshot at 1200px when scrolled. This is a challenge problem. You should not give or receive help when completing it. */
+
+body>header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  
+   }
+
+h1{
+  padding-top: 80px;
+  
+    }
+  }
+
+/* step 14
+The logo should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences. 
+ */
+  @media (prefers-reduced-motion) {
+    header #logo {
+      animation: none;
+    }
+  }
+
+/* step 15 Change the font on your body to Arial with a backup value of  Helvetica.  
+
+step 16 The background image should be removed. 
+
+step 17 Edit the nav/nav_links elements so that they are spaced according to the image above.
+
+step 21 Without using list-style-type add the thumbs up entity as shown in the cards. This is a challenge problem. You should not give or receive help when completing it.**For some people the thumbs up is not printing as yellow. That is fine.*/
+  
+@media print and (orientation: portrait){
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: none;
+    background-color: #f1f1f1;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nav_links .nav_item {
+  margin: 0 90px;
+}
+
+.pricing {
+  flex-direction: row;
+  /* justify-content: center; */
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+
+.card {
+  flex-basis: 325px;
+  border: solid 2px #45addd;
+}
+
+.gallery, #gallery {
+  display: none;
+}
+
+  /* my header color is gone for some reason */
+  /* .card > header {
+    background-color: #288088;
+    border: solid 2px #45adad;
+    padding: 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+} */
+
+.card li:nth-child(2)::after {
+  content: ' \1F44D';
+  margin-left: 0.5em;
+}
+
+}
